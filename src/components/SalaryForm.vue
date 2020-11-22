@@ -28,6 +28,15 @@
 					/>
 				</div>
 				<div class="form-group">
+					<label for="material_cost">Material Cost</label>
+					<input
+						type="text"
+						class="form-control"
+						v-model="materialCostValue"
+						id="material_cost"
+					/>
+				</div>
+				<div class="form-group">
 					<button type="submit" class="btn btn-primary">
 						Calculate Salary
 					</button>
@@ -44,19 +53,23 @@ export default {
 		return {
 			invoiceValue: '',
 			acreditFeeValue: 2,
+			materialCostValue: 0,
 		};
 	},
 	methods: {
 		submitValues(e) {
 			e.preventDefault();
-			const { invoiceValue, acreditFeeValue } = this;
-			if (invoiceValue && acreditFeeValue) {
-				this.$emit('submitValues', { invoiceValue, acreditFeeValue });
+			const { invoiceValue, acreditFeeValue, materialCostValue } = this;
+			if (invoiceValue) {
+				this.$emit('submitValues', {
+					invoiceValue,
+					acreditFeeValue,
+					materialCostValue,
+				});
 			}
 		},
 	},
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
