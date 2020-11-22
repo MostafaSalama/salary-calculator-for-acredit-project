@@ -1,19 +1,4 @@
-# salary-invoices
 
-## Project setup
-```
-npm install
-```
+# salary-calculator-for-acredit-project
+This is a simple salary calculator that will be used in another project
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
