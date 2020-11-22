@@ -12,5 +12,11 @@
   "devDependencies": {
     "@vue/cli-service": "~4.5.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": true,
+    "tabWidth": 4
   }
 }
