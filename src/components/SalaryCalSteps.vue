@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="card shadow p-2">
 		<p>
 			Invoice Sum:<span class="text-dark font-weight-bolder">{{
 				invoiceSum
