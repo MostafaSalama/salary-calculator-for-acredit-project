@@ -1,19 +1,38 @@
 <template>
-	<div class="row">
+	<div>
 		<div
 			class="d-flex align-items-baseline flex-wrap col-12 justify-content-center"
 		>
-			<label class="mr-2">
-				<input
-					class="form-control px-5"
-					type="text"
-					placeholder="write here invoice value"
-					v-model="invoiceValue"
-				/>
-			</label>
-			<button class="btn btn-primary" @click="submitInvoice">
-				Calculate Salary
-			</button>
+			<form @submit="submitValues">
+				<div class="form-group">
+					<label for="invoice_input">Invoice Value</label>
+					<input
+						type="text"
+						class="form-control"
+						id="invoice_input"
+						v-model="invoiceValue"
+					/>
+				</div>
+				<div class="form-group">
+					<label for="acredit_fee"
+						>Acredit Fee <small>(in percent)</small></label
+					>
+					<input
+						type="number"
+						min="0"
+						max="100"
+						id="acredit_fee"
+						class="form-control"
+						step="any"
+						v-model="acreditFeeValue"
+					/>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">
+						Calculate Salary
+					</button>
+				</div>
+			</form>
 		</div>
 	</div>
 </template>
@@ -24,12 +43,15 @@ export default {
 	data() {
 		return {
 			invoiceValue: '',
+			acreditFeeValue: 2,
 		};
 	},
 	methods: {
-		submitInvoice() {
-			if (this.invoiceValue) {
-				this.$emit('invoiceValue', this.invoiceValue);
+		submitValues(e) {
+			e.preventDefault();
+			const { invoiceValue, acreditFeeValue } = this;
+			if (invoiceValue && acreditFeeValue) {
+				this.$emit('submitValues', { invoiceValue, acreditFeeValue });
 			}
 		},
 	},
@@ -37,10 +59,4 @@ export default {
 </script>
 
 <style scoped>
-.salary-form {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	justify-items: center;
-}
 </style>
