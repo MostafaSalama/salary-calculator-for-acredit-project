@@ -42,7 +42,7 @@ export default {
 			taxes: {
 				aga: 0.239045,
 				ser: 0.107143,
-				tax: 0.193675,
+				tax: 0.3,
 			},
 		};
 	},
